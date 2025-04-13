@@ -3,8 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { AuthProvider, useAuth } from './components/auth/AuthContext';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
-import Dashboard from './components/Dashboard'; // You'll create this next
+import Dashboard from './components/Dashboard'; 
 import PublicStatusPage from './components/PublicStatusPage';
+import IncidentList from './components/incidents/IncidentList';
+import IncidentDetail from './components/incidents/IncidentDetail';
+import IncidentForm from './components/incidents/IncidentForm';
 
 // Protected route component
 function PrivateRoute({ children }) {
@@ -30,6 +33,30 @@ function App() {
           <Route path="/register" element={<Register />} />
           
           {/* Protected routes */}
+          <Route 
+            path="/dashboard/incidents" 
+            element={
+              <PrivateRoute>
+                <IncidentList />
+              </PrivateRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/incidents/:incidentId" 
+            element={
+              <PrivateRoute>
+                <IncidentDetail />
+              </PrivateRoute>
+            } 
+          />
+          <Route 
+            path="/dashboard/incidents/new" 
+            element={
+              <PrivateRoute>
+                <IncidentForm />
+              </PrivateRoute>
+            } 
+          />
           <Route 
             path="/dashboard" 
             element={
