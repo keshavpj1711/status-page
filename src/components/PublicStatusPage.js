@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../firebase';
 import { collection, onSnapshot, query, orderBy, where, limit } from 'firebase/firestore';
+import IncidentTimeline from './incidents/IncidentTimeline';
 
 function PublicStatusPage() {
   const [services, setServices] = useState([]);
