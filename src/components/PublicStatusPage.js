@@ -273,7 +273,7 @@ function PublicStatusPage() {
                       </span>
                     )}
                   </div>
-                  <IncidentTimeline incident={incident} />
+                  <IncidentTimeline updates={incident.updates || {}} />
                 </div>
               ))
             )}
