@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Status Page Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+This application is a simplified version of a status page service similar to StatusPage, Cachet, or Betterstack. It allows administrators to manage services and their statuses, and provides a public-facing page for users to view the current status of all services.
 
-In the project directory, you can run:
+## Live Demo
 
-### `npm start`
+**Hosted Application**: [Status Page App](https://status-page-inky.vercel.app/login/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Demo Credentials**:
+- Email: hello@gmail.com
+- Password: 123456
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features Implemented
 
-### `npm test`
+### User Authentication
+- Secure email/password authentication using Firebase Auth
+- Protected routes for authenticated users
+- Login and registration functionality
+- User session management
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Service Management
+- Complete CRUD operations for services:
+  - Create new services with name and initial status
+  - Read/view all services with their current status
+  - Update service status (Operational, Degraded Performance, Partial Outage, Major Outage)
+  - Delete services with confirmation dialog
+- Visual indicators for different service statuses
+- Real-time updates when service status changes
 
-### `npm run build`
+### Incident Management
+- Full CRUD functionality for incidents:
+  - Create incidents with title, description, status, and affected services
+  - View incident details including timeline of updates
+  - Update incidents with new status information
+  - Resolve incidents when issues are fixed
+- Incident timeline showing the progression of status updates
+- Visual status indicators for different incident states
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Real-time Updates
+- Implemented Firebase's onSnapshot listeners for real-time data synchronization
+- Status changes appear immediately without page refresh
+- Timeline updates in real-time as new information is added
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Public Status Page
+- Accessible to all users without authentication
+- Displays current status of all services
+- Shows active incidents with their details
+- Presents a timeline of recent incidents and status changes
+- Overall system status indicator based on service health
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+- **Frontend**: React, Tailwind CSS
+- **Backend/Database**: Firebase (Firestore)
+- **Authentication**: Firebase Authentication
+- **Hosting**: Vercel
+- **Real-time Updates**: Firestore onSnapshot listeners
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application follows a component-based architecture with the following main components:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Authentication**: Login and Registration components
+- **Dashboard**: Main interface for authenticated users
+- **ServiceManagement**: CRUD interface for services
+- **Incident Management**: Components for creating and managing incidents
+- **PublicStatusPage**: Public-facing status dashboard
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Future Enhancements
 
-## Learn More
+While not implemented in the current version due to time constraints, the following features are planned for future releases:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Multi-user collaboration with team management
+- Organization/multi-tenant support
+- WebSocket implementation for even more responsive real-time updates
+- Email notifications for status changes
+- Metric graphs for service uptime percentage
+- API for external status checks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Local Development
 
-### Code Splitting
+1. Clone the repository
+2. Install dependencies with `npm install`
+3. Create a `.env` file with your Firebase configuration
+4. Run the development server with `npm start`
+5. Access the application at `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Acknowledgments
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project was created as part of a technical assignment, focusing on implementing core status page functionality with a clean, minimalist UI. The application demonstrates proficiency in React, Firebase, real-time data synchronization, and responsive design.
