@@ -27,6 +27,13 @@ function IncidentUpdate({ incidentId, onUpdateAdded }) {
         })
       });
 
+      console.log('Incident update submitted successfully:', {
+        incidentId,
+        updateText,
+        updateStatus,
+        timestamp: new Date()
+      });
+
       setUpdateText('');
       if (onUpdateAdded) {
         onUpdateAdded();
